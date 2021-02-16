@@ -43,7 +43,7 @@ read_path = './../../../data/bitvectors/ii/gov2/url/gov2_ii_nofreq_url_dif.txt.B
 # sizes = [100, 1000, 10000, 100000, 500000, 1000000]
 # sizes = [1, 2, 3, 4]
 spaced = 10
-complete = read_inverted_index(read_path, spaced=spaced, max_lines=500)
+complete = read_inverted_index(read_path, spaced=spaced, max_lines=1000)
 
 # for size in sizes:
 #     random.seed(5)
