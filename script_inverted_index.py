@@ -33,8 +33,8 @@ def select_n (intervals, n):
     return random.sample(intervals, n)
 
 
-read_path = 'example.txt'
-save_path = './'
+read_path = './../../../data/bitvectors/ii/gov2/url/gov2_ii_nofreq_url_dif.txt.B'
+# save_path = './'
 
 # sizes = [100, 1000, 10000, 100000, 500000, 1000000]
 # sizes = [1, 2, 3, 4]
