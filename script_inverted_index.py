@@ -1,7 +1,7 @@
 import random
 from os.path import join
 
-def read_inverted_index(path, spaced=2, max_lines=100000):
+def read_inverted_index(path, spaced=2, max_lines=10):
     intervals = []
     f = open(path, "r")
     universo = 0
@@ -18,6 +18,7 @@ def read_inverted_index(path, spaced=2, max_lines=100000):
             s = s[1:]
             grouped_s = [[s[spaced*i], s[(spaced*i+spaced)-1]] for i in range(int(n/spaced))]
             intervals += grouped_s
+        print(count)
         count += 1
     f.close()
     return intervals
@@ -41,7 +42,7 @@ read_path = './../../../data/bitvectors/ii/gov2/url/gov2_ii_nofreq_url_dif.txt.B
 
 # sizes = [100, 1000, 10000, 100000, 500000, 1000000]
 # sizes = [1, 2, 3, 4]
-complete = read_inverted_index(read_path, spaced=3)
+complete = read_inverted_index(read_path, spaced=20)
 
 # for size in sizes:
 #     random.seed(5)
