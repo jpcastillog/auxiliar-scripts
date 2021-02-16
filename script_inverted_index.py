@@ -23,7 +23,7 @@ def read_inverted_index(path, spaced=2):
 def write_intervals(intervals, path):
     f = open(path, "w")
     for i in intervals:
-        f.write(f'{i[0]} {i[1]}\n')
+        f.write(f"{i[0]} {i[1]}\n")
     f.close()
 
 
