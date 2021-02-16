@@ -23,7 +23,7 @@ def read_inverted_index(path, spaced=2):
 def write_intervals(intervals, path):
     f = open(path, "w")
     for i in intervals:
-        f.write(f"{i[0]} {i[1]}\n")
+        f.write("{0} {1}\n".format(i[0], i[1]))
     f.close()
 
 
@@ -37,7 +37,7 @@ read_path = 'example.txt'
 save_path = './'
 
 # sizes = [100, 1000, 10000, 100000, 500000, 1000000]
-sizes = [1, 2, 3, 4]
+# sizes = [1, 2, 3, 4]
 complete = read_inverted_index(read_path, spaced=3)
 
 # for size in sizes:
@@ -46,7 +46,8 @@ complete = read_inverted_index(read_path, spaced=3)
 #     print(A)
 #     random.seed(10)
 #     B = select_n(complete, size)
-#     write_intervals(A, join(save_path, f'invertedIndexA_{size}.txt'))
-#     write_intervals(B, join(save_path, f'invertedIndexB_{size}.txt'))
+#     write_intervals(A, join(save_path, 'invertedIndexA_{}.txt'.format(size)))
+#     write_intervals(B, join(save_path, 'invertedIndexB_{}.txt'.format(size)))
 
-print(complete)
+print(len(complete))
+print(complete[:10])
