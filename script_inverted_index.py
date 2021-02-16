@@ -42,7 +42,8 @@ read_path = './../../../data/bitvectors/ii/gov2/url/gov2_ii_nofreq_url_dif.txt.B
 
 # sizes = [100, 1000, 10000, 100000, 500000, 1000000]
 # sizes = [1, 2, 3, 4]
-complete = read_inverted_index(read_path, spaced=10, max_lines=200)
+spaced = 10
+complete = read_inverted_index(read_path, spaced=spaced, max_lines=500)
 
 # for size in sizes:
 #     random.seed(5)
@@ -50,8 +51,8 @@ complete = read_inverted_index(read_path, spaced=10, max_lines=200)
 #     print(A)
 #     random.seed(10)
 #     B = select_n(complete, size)
-#     write_intervals(A, join(save_path, 'invertedIndexA_{}.txt'.format(size)))
-#     write_intervals(B, join(save_path, 'invertedIndexB_{}.txt'.format(size)))
+#     write_intervals(A, join(save_path, 'invertedIndexA{0}_{1}.txt'.format(spaced, size)))
+#     write_intervals(B, join(save_path, 'invertedIndexB{0}_{1}.txt'.format(spaced, size)))
 
 print(len(complete))
 print(complete[:10])
