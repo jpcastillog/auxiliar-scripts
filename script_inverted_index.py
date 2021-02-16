@@ -40,12 +40,13 @@ save_path = './'
 sizes = [1, 2, 3, 4]
 complete = read_inverted_index(read_path, spaced=3)
 
-for size in sizes:
-    random.seed(5)
-    A = select_n(complete, size)
-    print(A)
-    random.seed(10)
-    B = select_n(complete, size)
-    write_intervals(A, join(save_path, f'invertedIndexA_{size}.txt'))
-    write_intervals(B, join(save_path, f'invertedIndexB_{size}.txt'))
+# for size in sizes:
+#     random.seed(5)
+#     A = select_n(complete, size)
+#     print(A)
+#     random.seed(10)
+#     B = select_n(complete, size)
+#     write_intervals(A, join(save_path, f'invertedIndexA_{size}.txt'))
+#     write_intervals(B, join(save_path, f'invertedIndexB_{size}.txt'))
+
 print(complete)
