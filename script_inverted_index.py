@@ -1,7 +1,7 @@
 import random
 from os.path import join
 
-def read_inverted_index(path, spaced=2):
+def read_inverted_index(path, spaced=2, max_lines=100000):
     intervals = []
     f = open(path, "r")
     universo = 0
@@ -9,6 +9,9 @@ def read_inverted_index(path, spaced=2):
     for line in f:
         if count == 0:
             universo = int(line)
+        elif count >= max_lines:
+            break
+    
         else:
             s = list(map(int, line.strip().split(' ')))
             n = s[0]
