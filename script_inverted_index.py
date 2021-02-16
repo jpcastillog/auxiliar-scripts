@@ -48,7 +48,7 @@ complete = read_inverted_index(read_path, spaced=spaced, max_lines=1000)
 for size in sizes:
     random.seed(5)
     A = select_n(complete, size)
-    print(A)
+    # print(A)
     random.seed(10)
     B = select_n(complete, size)
     write_intervals(A, join(save_path, 'invertedIndexA{0}_{1}.txt'.format(spaced, size)))
