@@ -43,12 +43,12 @@ def read_inverted_index(path, max_lines=100):
             previous = s[0]
             for i in range(1, len(s)):
                 if previous + 1 != s[i]:
-                    intervals.append([start, previous])
+                    intervals.append([start, previous+1])
                     start = s[i]
                     previous = s[i]
                 else:
                     previous = s[i]
-            intervals.append([start, s[n-1]])
+            intervals.append([start, s[n-1]+1])
         print("line: ", count)
         count += 1
     f.close()
@@ -89,4 +89,4 @@ complete = read_inverted_index(read_path, max_lines=1000)
 #     print("Creados los archivos para {}".format(size))
 
 print(len(complete))
-print(complete[:10])
+print(complete[400:410])
