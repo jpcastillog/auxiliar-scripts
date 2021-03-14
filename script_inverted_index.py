@@ -1,7 +1,7 @@
 import random
 from os.path import join
 
-def read_inverted_index(path, spaced=2, max_lines=100):
+def read_inverted_index_spaced(path, spaced=2, max_lines=100):
     intervals = []
     f = open(path, "r")
     universo = 0
@@ -23,6 +23,36 @@ def read_inverted_index(path, spaced=2, max_lines=100):
     f.close()
     return intervals
 
+def read_inverted_index(path, max_lines=100):
+    intervals = []
+    f = open(path, "r")
+    universo = 0
+    count = 0
+    for line in f:
+        if count == 0:
+            universo = int(line)
+        elif count >= max_lines:
+            break
+            
+        else:
+            s = list(map(int, line.strip().split(' ')))
+            n = s[0]
+            s = s[1:]
+
+            start = s[0]
+            previous = s[0]
+            for i in range(1, len(s)):
+                if previous + 1 != s[i]:
+                    intervals.append([start, previous])
+                    start = s[i]
+                    previous = s[i]
+                else:
+                    previous = s[i]
+            intervals.append([start, s[n-1]])
+        count += 1
+    f.close()
+    return intervals
+
 
 def write_intervals(intervals, path):
     f = open(path, "w")
@@ -38,23 +68,24 @@ def select_n (intervals, n):
 
 
 read_path = './../../../data/bitvectors/ii/gov2/url/gov2_ii_nofreq_url_dif.txt.B'
-save_path = './../../../data/intervals/invertedIndex'
+# save_path = './../../../data/intervals/invertedIndex'
 
-sizes = [100, 1000, 10000, 100000, 500000, 1000000]
+# sizes = [100, 1000, 10000, 100000, 500000, 1000000]
 # sizes = [10000000]
 # sizes = [1, 2, 3, 4]
-spaced = 100
-complete = read_inverted_index(read_path, spaced=spaced, max_lines=1000)
+# spaced = 100
+# complete = read_inverted_index_spaced(read_path, spaced=spaced, max_lines=1000)
+complete = read_inverted_index(read_path, max_lines=1000)
 
-for size in sizes:
-    random.seed(5)
-    A = select_n(complete, size)
-    # print(A)
-    random.seed(10)
-    B = select_n(complete, size)
-    write_intervals(A, join(save_path, 'invertedIndexA{0}_{1}.txt'.format(spaced, size)))
-    write_intervals(B, join(save_path, 'invertedIndexB{0}_{1}.txt'.format(spaced, size)))
-    print("Creados los archivos para {}".format(size))
+# for size in sizes:
+#     random.seed(5)
+#     A = select_n(complete, size)
+#     # print(A)
+#     random.seed(10)
+#     B = select_n(complete, size)
+#     write_intervals(A, join(save_path, 'invertedIndexA{0}_{1}.txt'.format(spaced, size)))
+#     write_intervals(B, join(save_path, 'invertedIndexB{0}_{1}.txt'.format(spaced, size)))
+#     print("Creados los archivos para {}".format(size))
 
 print(len(complete))
 print(complete[:10])
