@@ -72,21 +72,22 @@ read_path = './../../../data/bitvectors/ii/gov2/url/gov2_ii_nofreq_url_dif.txt.B
 # save_path = './../../../data/intervals/invertedIndex'
 
 # sizes = [100, 1000, 10000, 100000, 500000, 1000000]
-# sizes = [10000000]
+sizes = [10000000]
 # sizes = [1, 2, 3, 4]
 # spaced = 100
 # complete = read_inverted_index_spaced(read_path, spaced=spaced, max_lines=1000)
 complete = read_inverted_index(read_path, max_lines=1000)
 
-# for size in sizes:
-#     random.seed(5)
-#     A = select_n(complete, size)
-#     # print(A)
-#     random.seed(10)
-#     B = select_n(complete, size)
-#     write_intervals(A, join(save_path, 'invertedIndexA{0}_{1}.txt'.format(spaced, size)))
-#     write_intervals(B, join(save_path, 'invertedIndexB{0}_{1}.txt'.format(spaced, size)))
-#     print("Creados los archivos para {}".format(size))
+for size in sizes:
+    random.seed(5)
+    A = select_n(complete, size)
+    print("A: ", A[:10])
+    random.seed(10)
+    B = select_n(complete, size)
+    print("B: ", B[:10])
+    # write_intervals(A, join(save_path, 'invertedIndexA{0}_{1}.txt'.format(spaced, size)))
+    # write_intervals(B, join(save_path, 'invertedIndexB{0}_{1}.txt'.format(spaced, size)))
+    # print("Creados los archivos para {}".format(size))
 
-print(len(complete))
-print(complete[400:410])
+# print(len(complete))
+# print(complete[400:410])
