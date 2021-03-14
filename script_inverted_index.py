@@ -88,6 +88,7 @@ for size in sizes:
     write_intervals(A, join(save_path, 'invertedIndexADefault_{}.txt'.format(size)))
     write_intervals(B, join(save_path, 'invertedIndexBDefault_{}.txt'.format(size)))
     print("Creados los archivos para {}".format(size))
+    
 print("Fin del Script!!!\n")
 # print(len(complete))
 # print(complete[400:410])
