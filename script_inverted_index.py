@@ -81,14 +81,14 @@ complete = read_inverted_index(read_path, max_lines=1000)
 for size in sizes:
     random.seed(5)
     A = select_n(complete, size)
-    print("A: ", A[:10])
+    # print("A: ", A[:10])
     random.seed(10)
     B = select_n(complete, size)
-    print("B: ", B[:10])
+    # print("B: ", B[:10])
     write_intervals(A, join(save_path, 'invertedIndexADefault_{}.txt'.format(size)))
     write_intervals(B, join(save_path, 'invertedIndexBDefault_{}.txt'.format(size)))
     print("Creados los archivos para {}".format(size))
-    
+
 print("Fin del Script!!!\n")
 # print(len(complete))
 # print(complete[400:410])
