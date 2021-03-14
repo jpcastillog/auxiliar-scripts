@@ -49,6 +49,7 @@ def read_inverted_index(path, max_lines=100):
                 else:
                     previous = s[i]
             intervals.append([start, s[n-1]])
+        print("line: ", count)
         count += 1
     f.close()
     return intervals
