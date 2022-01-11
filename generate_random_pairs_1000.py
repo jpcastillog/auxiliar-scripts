@@ -14,10 +14,12 @@ def generate_random_pairs(read_path, out_ii, out_query_log, n_pairs = 1000):
             termIds_4096.append(termId)
     f.close()
 
+    print("-> Listas invertidas > 4096 OK")
+
     l_relation = []
     r_relation = []
     query_ids  = []
-
+    
     # generate random pairs
     for i in range (n_pairs):
         l = random.choice(termIds_4096)
@@ -31,14 +33,15 @@ def generate_random_pairs(read_path, out_ii, out_query_log, n_pairs = 1000):
             r_relation.append(r)
         query_ids.append(l)
         query_ids.append(r)
-        
+    
+    print("-> Se generaron 1000 pares random exitosamente!")
     query_ids = list(set(query_ids)) # unique ids 
     query_ids.sort()
 
     f_write = open(out_ii, "w")
     f_q_write = open(out_query_log, "w")
     f_read = open(read_path, "r")
-
+    print ("-> Escribiendo ii y QueryLog")
     n_il = 0
     for line in f_read:
         data = line.split(" ")
@@ -53,9 +56,10 @@ def generate_random_pairs(read_path, out_ii, out_query_log, n_pairs = 1000):
         f_q_write.write("{0} {1}\n".format(l_relation[i], r_relation[i]))
     f_write.close()
     f_read.close()
+    print ("->  ii y QueryLog escritos exitosamente!!!")
 
-ii_path = "../../GOV2/index/ii/absDocIDS/gov2_url_absolute_freqs.ii"
-# ii_path = "./data/example.txt"
+# ii_path = "../../GOV2/index/ii/absDocIDS/gov2_url_absolute_freqs.ii"
+ii_path = "./data/example.txt"
 save_path_ii = "./data/ii_random_1000.txt"
 save_path_qlog = "./data/queryLog_1000pairs.txt"
 
