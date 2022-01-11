@@ -58,8 +58,8 @@ def generate_random_pairs(read_path, out_ii, out_query_log, n_pairs = 1000):
     f_read.close()
     print ("->  ii y QueryLog escritos exitosamente!!!")
 
-# ii_path = "../../GOV2/index/ii/absDocIDS/gov2_url_absolute_freqs.ii"
-ii_path = "./data/example.txt"
+ii_path = "../../GOV2/index/ii/absDocIDS/gov2_url_absolute_freqs.ii"
+# ii_path = "./data/example.txt"
 save_path_ii = "./data/ii_random_1000.txt"
 save_path_qlog = "./data/queryLog_1000pairs.txt"
 
