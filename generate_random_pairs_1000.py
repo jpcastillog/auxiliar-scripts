@@ -2,7 +2,7 @@ import random
 from os.path import join
 
 
-def generate_random_pairs(read_path, out_file, n_pairs = 1000):
+def generate_random_pairs(read_path, out_ii, out_query_log, n_pairs = 1000):
     f = open(read_path, "r")
     
     termIds_4096 = []
@@ -16,9 +16,8 @@ def generate_random_pairs(read_path, out_file, n_pairs = 1000):
 
     l_relation = []
     r_relation = []
-    query_ids = []
+    query_ids  = []
 
-    f = open(read_path, "r")
     # generate random pairs
     for i in range (n_pairs):
         l = random.choice(termIds_4096)
@@ -36,21 +35,28 @@ def generate_random_pairs(read_path, out_file, n_pairs = 1000):
     query_ids = list(set(query_ids)) # unique ids 
     query_ids.sort()
 
-    f_write = open(out_file, "w")
+    f_write = open(out_ii, "w")
+    f_q_write = open(out_query_log, "w")
+    f_read = open(read_path, "r")
 
-    ii_to_write = []
     n_il = 0
-    for line in f:
+    for line in f_read:
         data = line.split(" ")
         if n_il == len(query_ids):
             break
         termId = int(data[0])
         if termId == query_ids[n_il]:
             f_write.write(line)
-    
+            n_il += 1
+
+    for i in range(n_pairs):
+        f_q_write.write("{0} {1}\n".format(l_relation[i], r_relation[i]))
     f_write.close()
+    f_read.close()
 
 ii_path = "../../GOV2/index/ii/absDocIDS/gov2_url_absolute_freqs.ii"
-save_path = "./data/ii_random_1000.txt"
+# ii_path = "./data/example.txt"
+save_path_ii = "./data/ii_random_1000.txt"
+save_path_qlog = "./data/queryLog_1000pairs.txt"
 
-generate_random_pairs(ii_path, save_path)
+generate_random_pairs(ii_path, save_path_ii, save_path_qlog)
