@@ -7,7 +7,7 @@ def generate_random_pairs(read_path, out_ii, out_query_log, n_pairs = 1000):
     
     termIds_4096 = []
     for line in f:
-        data    = line.split(" ")
+        data    = line.split(" ", maxsplit=2)
         termId  = int(data[0])
         size    = int(data[1])
         if size >= 4096:
@@ -44,7 +44,7 @@ def generate_random_pairs(read_path, out_ii, out_query_log, n_pairs = 1000):
     print ("-> Escribiendo ii y QueryLog")
     n_il = 0
     for line in f_read:
-        data = line.split(" ")
+        data = line.split(" ", maxsplit=2)
         if n_il == len(query_ids):
             break
         termId = int(data[0])
