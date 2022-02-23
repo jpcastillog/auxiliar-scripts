@@ -10,7 +10,7 @@ def countInvertedLists(path, min_size):
         size    = int(data[1])
 
         if size > min_size:
-            print('Inverted lists > ', min_size,  '-> ', n_il)
+            # print('Inverted lists > ', min_size,  '-> ', n_il)
             n_il += 1
             total_size += size
     f.close()
