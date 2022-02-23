@@ -67,7 +67,6 @@ def select_n (intervals, n):
         print("n > size of set")
     return random.sample(intervals, n)
 
-
 read_path = './../../../data/bitvectors/ii/gov2/url/gov2_ii_nofreq_url_dif.txt.B'
 save_path = './../../../data/intervals/invertedIndex'
 
