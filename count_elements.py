@@ -17,4 +17,4 @@ def countInvertedLists(path, min_size):
 
 
 ii_path = "../../GOV2/index/ii/absDocIDS/gov2_url_absolute_freqs.ii"
-countInvertedLists(ii_path, 4096)
+countInvertedLists(ii_path, 100000)
