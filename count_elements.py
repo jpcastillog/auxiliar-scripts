@@ -2,16 +2,15 @@
 # not binary file
 def countInvertedLists(path, min_size):
     f = open(path, 'r')
-    
+    n_il = 0    
     for line in f:
         data = line.split(' ', maxsplit=2)
         termId  = int(data[0])
         size    = int(data[1])
 
-        n_il = 0
         if size > min_size:
-            n_il += 1
             print('Inverted lists > ', min_size,  '-> ', n_il)
+            n_il += 1
     f.close()
     print('Total # inverted lists: ', n_il)
     return n_il
