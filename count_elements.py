@@ -11,9 +11,9 @@ def countInvertedLists(path, min_size):
         n_il = 0
         if size > min_size:
             n_il += 1
-            print('Inverted lists > {0} -> {1}'.format(min_size, n_il))
+            print('Inverted lists > ', min_size,  '-> ', n_il)
     f.close()
-    print('Total # inverted lists: {0}'.format(n_il))
+    print('Total # inverted lists: ', n_il)
     return n_il
 
 
