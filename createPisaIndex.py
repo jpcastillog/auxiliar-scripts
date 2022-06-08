@@ -86,14 +86,15 @@ print("Creating gov2")
 colletion_filename = join(folder_to_save, colletion_filename)
 createPisaFormat(input_filename, colletion_filename, 0)
 
-folder_to_save = "../pisa/ClueWeb09" 
+folder_to_save = "../pisa/ClueWeb09"
+input_filename = "../ClueWeb09Flat/clueweb09.sorted" 
 
 colletion_filename = "clueweb09_4096"
 print("Creating clueweb09_4096")
 colletion_filename = join(folder_to_save, colletion_filename)
 createPisaFormat(input_filename, colletion_filename, 4096)
 
-colletion_filename = "clueweb09_4096"
+colletion_filename = "clueweb09"
 print("Creating clueweb09")
 colletion_filename = join(folder_to_save, colletion_filename)
 createPisaFormat(input_filename, colletion_filename, 0)
