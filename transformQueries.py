@@ -1,5 +1,4 @@
 from os.path import join
-from tkinter import N
 
 def transformQueries(file_in, file_out):
     fin = open(file_in, "r")
