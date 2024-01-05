@@ -18,7 +18,7 @@ def addUniverse(u, file):
     print('FIN !!!!')
 
 def removeElementsQueries(min_id, queries_file, out_file):
-    f = open(file, 'r')
+    f = open(queries_file, 'r')
     filtered_queries = []
     nq = 0 
     for line in f:
